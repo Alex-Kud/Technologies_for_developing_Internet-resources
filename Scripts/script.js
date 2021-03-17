@@ -45,13 +45,12 @@ function generation_question(number_question){
     }
 
     for (var i = 0; i < N; i++){
+        document.getElementById('question').innerHTML='';
         if (questions_array[i].getNumber_question() == number_question){
             id = i;
             document.getElementById('question').innerHTML='';
-            var question = document.querySelector('#question');
-            var p = document.createElement('p');
-            p.innerHTML = questions_array[i].getText_question();
-            question.appendChild(p);
+            var question = '<p>'+questions_array[i].getText_question()+'</p>';
+            document.getElementById('question').innerHTML=question;
             var text_answer;
             if (answers_array[i].getType() == 'checkbox'){
                 document.getElementById('answer').innerHTML='';
