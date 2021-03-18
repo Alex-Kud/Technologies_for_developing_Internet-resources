@@ -48,7 +48,7 @@ function generation_question(number_question){
         if (questions_array[i].getNumber_question() == number_question){
             id = i;
             document.getElementById('question').innerHTML='';
-            var question = '<p>'+questions_array[i].getText_question()+'</p>';
+            var question = questions_array[i].getText_question();
             document.getElementById('question').innerHTML=question;
             var text_answer;
             if (answers_array[i].getType() == 'checkbox'){
@@ -97,7 +97,7 @@ function generation_question(number_question){
             }        
             if (answers_array[i].getType() == 'textbox'){
                 document.getElementById('answer').innerHTML='';
-                text_answer = '<input id="text_ans" type="text" placeholder="Введите ответ">';
+                text_answer = '<input id="text_ans" type="text" placeholder="Введите ответ с заглавной буквы">';
                 text_answer += '<br><input id="button_answer" type="button" value="Ответить" onclick="textbox_answer()">';
                 document.getElementById('answer').innerHTML = text_answer;
             }    
