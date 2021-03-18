@@ -45,7 +45,6 @@ function generation_question(number_question){
     }
 
     for (var i = 0; i < N; i++){
-        document.getElementById('question').innerHTML='';
         if (questions_array[i].getNumber_question() == number_question){
             id = i;
             document.getElementById('question').innerHTML='';
@@ -62,7 +61,7 @@ function generation_question(number_question){
                 text_answer += answers_array[i].getAns3();
                 text_answer += '<br><input id="checkbox4" type="checkbox" value="a4">';
                 text_answer += answers_array[i].getAns4();
-                text_answer += '<br><input type="button" value="Ответить" onclick="checkbox_answer()">';
+                text_answer += '<br><input id="button_answer" type="button" value="Ответить" onclick="checkbox_answer()">';
                 document.getElementById('answer').innerHTML = text_answer;
             }
             if (answers_array[i].getType() == 'radiobutton'){
@@ -75,12 +74,12 @@ function generation_question(number_question){
                 text_answer += answers_array[i].getAns3();
                 text_answer += '<br><input id="radiobutton4" name="rb" type="radio" value="a4">';
                 text_answer += answers_array[i].getAns4();
-                text_answer += '<br><input type="button" value="Ответить" onclick="radiobutton_answer()">';
+                text_answer += '<br><input id="button_answer" type="button" value="Ответить" onclick="radiobutton_answer()">';
                 document.getElementById('answer').innerHTML = text_answer;
             }
             if (answers_array[i].getType() == 'select'){
                 document.getElementById('answer').innerHTML='';
-                text_answer = '<select>';
+                text_answer = '<select id="selects">';
                 text_answer += '<option id="select1" value="a1">';
                 text_answer += answers_array[i].getAns1();
                 text_answer += '</option>';
@@ -93,13 +92,13 @@ function generation_question(number_question){
                 text_answer += '<option id="select4" value="a4">';
                 text_answer += answers_array[i].getAns4();
                 text_answer += '</option></select>';
-                text_answer += '<br><input type="button" value="Ответить" onclick="select_answer()">';
+                text_answer += '<br><input id="button_answer" type="button" value="Ответить" onclick="select_answer()">';
                 document.getElementById('answer').innerHTML = text_answer;
             }        
             if (answers_array[i].getType() == 'textbox'){
                 document.getElementById('answer').innerHTML='';
                 text_answer = '<input id="text_ans" type="text" placeholder="Введите ответ">';
-                text_answer += '<br><input type="button" value="Ответить" onclick="textbox_answer()">';
+                text_answer += '<br><input id="button_answer" type="button" value="Ответить" onclick="textbox_answer()">';
                 document.getElementById('answer').innerHTML = text_answer;
             }    
         }
@@ -165,21 +164,23 @@ function Finish(){
     for(var i = 0; i < N; i++)
         if (answers_array[i].getAnswer() == answers_array[i].getKey()) 
             res++;
-    var show = '<div><p>Вы набрали ' + res + ' баллов из ' + N + ' ! Вы молодец!</p></div>';
+    var show = '<div><p id="result">Вы набрали ' + res + ' баллов из ' + N + ' ! Вы молодец!</p></div>';
         for (var i = 0; i < N; i++){
             k = flag_array[i];
             if (k === undefined)
                 alert('Вы не завершили просмотр всех вопросов! Попытка выполнения теста неудачна!');
-            show += '<p>Вопрос № ' + (i + 1); 
+            show += '<p id="number_question">Вопрос № ' + (i + 1); 
             if(answers_array[k].getKey() == answers_array[k].getAnswer())
                 show += ' +1 балл</p>';
             
-            if(answers_array[k].getAnswer() === undefined)
+            if(answers_array[k].getAnswer() == ';;;;')
                show += ' Ответ не был дан!</p>';
-            
-            
+           
             if ((answers_array[k].getType() == 'textbox') && (answers_array[k].getKey() != answers_array[k].getAnswer())){
-                show += '<p style="background-color:red">' + answers_array[k].getAnswer() + '</p>';
+                if (answers_array[k].getAnswer() == ';;;;')
+                    show += '<p style="background-color:red"> Ответ не был дан! </p>';
+                else 
+                    show += '<p style="background-color:red">' + answers_array[k].getAnswer() + '</p>';
                 show += '<p style="background-color:green">' + answers_array[k].getKey() + '</p>';
             }  
             else 
@@ -187,79 +188,65 @@ function Finish(){
                 var ans = answers_array[k].getAnswer().split(';');
                 var key = answers_array[k].getKey().split(';');
                 
-                    show += '<p';
-                    if (key[0] == answers_array[k].getAns1())
-                        show += ' style="background-color:green"';
-                    if ((key[0] != ans[0])&&(ans[0]== answers_array[k].getAns1()))
-                        show += ' style="background-color:red"';
+                show += '<p';
+                if (key[0] == answers_array[k].getAns1())
+                    show += ' style="background-color:green"';
+                if ((key[0] != ans[0])&&(ans[0]== answers_array[k].getAns1()))
+                    show += ' style="background-color:red"';
+                show += '>' + answers_array[k].getAns1() + '</p>';
 
+                show += '<p';
+                if (key[1] == answers_array[k].getAns2())
+                    show += ' style="background-color:green"';
+                if ((key[1] != ans[1])&&(ans[1] == answers_array[k].getAns2()))
+                    show += ' style="background-color:red"';
+                show += '>' + answers_array[k].getAns2() + '</p>';
 
-                    show += '>' + answers_array[k].getAns1() + '</p>';
+                show += '<p';
+                if (key[2] == answers_array[k].getAns3())
+                    show += ' style="background-color:green"';
+                if ((key[2] != ans[2])&&(ans[2] == answers_array[k].getAns3()))
+                    show += ' style="background-color:red"';
+                show += '>' + answers_array[k].getAns3() + '</p>';
 
-                    show += '<p';
-                    if (key[1] == answers_array[k].getAns2())
-                        show += ' style="background-color:green"';
-                    if ((key[1] != ans[1])&&(ans[1] == answers_array[k].getAns2()))
-                        show += ' style="background-color:red"';
-                    show += '>' + answers_array[k].getAns2() + '</p>';
-
-                    show += '<p';
-                    if (key[2] == answers_array[k].getAns3())
-                        show += ' style="background-color:green"';
-                    if ((key[2] != ans[2])&&(ans[2] == answers_array[k].getAns3()))
-                        show += ' style="background-color:red"';
-                    show += '>' + answers_array[k].getAns3() + '</p>';
-
-                    show += '<p';
-                    if (key[3] == answers_array[k].getAns4())
-                        show += ' style="background-color:green"';
-                    if ((key[3] != ans[3])&&(ans[3] == answers_array[k].getAns4()))
-                        show += ' style="background-color:red"';
-                    show += '>' + answers_array[k].getAns4() + '</p>';       
+                show += '<p';
+                if (key[3] == answers_array[k].getAns4())
+                    show += ' style="background-color:green"';
+                if ((key[3] != ans[3])&&(ans[3] == answers_array[k].getAns4()))
+                    show += ' style="background-color:red"';
+                show += '>' + answers_array[k].getAns4() + '</p>';       
             }   
-                
-                
-            else{        
-				show += '<p';
-				if (answers_array[k].getKey() == answers_array[k].getAns1())
-					show += ' style="background-color:green"';
-				if ((answers_array[k].getKey() != answers_array[k].getAnswer())&&(answers_array[k].getAnswer()==answers_array[k].getAns1()))
-					show += ' style="background-color:red"';
-				show += '>' + answers_array[k].getAns1() + '</p>';
-					
-				show += '<p';
-				if (answers_array[k].getKey() == answers_array[k].getAns2())
-					show += ' style="background-color:green"';
-				if ((answers_array[k].getKey() != answers_array[k].getAnswer())&&(answers_array[k].getAnswer()==answers_array[k].getAns2()))
-					show += ' style="background-color:red"';
-				show += '>' + answers_array[k].getAns2() + '</p>';
-					
-				show += '<p';
-				if (answers_array[k].getKey() == answers_array[k].getAns3())
-					show += ' style="background-color:green"';
-				if ((answers_array[k].getKey() != answers_array[k].getAnswer())&&(answers_array[k].getAnswer()==answers_array[k].getAns3()))
-					show += ' style="background-color:red"';
-				show += '>' + answers_array[k].getAns3() + '</p>';
-					
-				show += '<p';
-				if (answers_array[k].getKey() == answers_array[k].getAns4())
-					show += ' style="background-color:green"';
-				if ((answers_array[k].getKey() != answers_array[k].getAnswer())&&(answers_array[k].getAnswer()==answers_array[k].getAns4()))
-					show += ' style="background-color:red"';
-				show += '>' + answers_array[k].getAns4() + '</p>';        
-            }
-            
-            
-            
-        }
-        
-        
-        
-        
-        
 
-        
-        
+            else{
+                show += '<p';
+		if (answers_array[k].getKey() == answers_array[k].getAns1())
+                    show += ' style="background-color:green"';
+		if ((answers_array[k].getKey() != answers_array[k].getAnswer())&&(answers_array[k].getAnswer()==answers_array[k].getAns1()))
+                    show += ' style="background-color:red"';
+		show += '>' + answers_array[k].getAns1() + '</p>';
+					
+		show += '<p';
+		if (answers_array[k].getKey() == answers_array[k].getAns2())
+                    show += ' style="background-color:green"';
+		if ((answers_array[k].getKey() != answers_array[k].getAnswer())&&(answers_array[k].getAnswer()==answers_array[k].getAns2()))
+                    show += ' style="background-color:red"';
+		show += '>' + answers_array[k].getAns2() + '</p>';
+					
+		show += '<p';
+		if (answers_array[k].getKey() == answers_array[k].getAns3())
+                    show += ' style="background-color:green"';
+		if ((answers_array[k].getKey() != answers_array[k].getAnswer())&&(answers_array[k].getAnswer()==answers_array[k].getAns3()))
+                    show += ' style="background-color:red"';
+		show += '>' + answers_array[k].getAns3() + '</p>';
+					
+		show += '<p';
+		if (answers_array[k].getKey() == answers_array[k].getAns4())
+                    show += ' style="background-color:green"';
+		if ((answers_array[k].getKey() != answers_array[k].getAnswer())&&(answers_array[k].getAnswer()==answers_array[k].getAns4()))
+                    show += ' style="background-color:red"';
+		show += '>' + answers_array[k].getAns4() + '</p>';        
+            } 
+        }
         document.getElementById('content').innerHTML = show;
 }
 

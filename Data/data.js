@@ -5,10 +5,10 @@ for (var i = 0; i < 6; i++){
     answers_array[i] = new Answers;
 }// Заполнение данных первого вопроса:
 // Ответы:
-answers_array[0].setAns1('Ответ 1 На вопрос 1');
+answers_array[0].setAns1('');
 answers_array[0].setAns2('Ответ 2 На вопрос 1');
-answers_array[0].setAns3('Ответ 3 На вопрос 1');
-answers_array[0].setAns4('Ответ 4 На вопрос 1');
+answers_array[0].setAns3('');
+answers_array[0].setAns4('');
 answers_array[0].setKey('Ответ 2 На вопрос 1');
 answers_array[0].setType('textbox');
 // Вопросы:
