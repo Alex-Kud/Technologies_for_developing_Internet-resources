@@ -24,8 +24,8 @@ body{
 }
 
 .buttons_q:active {
-  background: #fbead3;
-  transition: background 0s;
+    background: #fbead3;
+    transition: background 0s;
 }
 
 #answer{

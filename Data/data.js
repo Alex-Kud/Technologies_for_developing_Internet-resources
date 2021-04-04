@@ -55,8 +55,8 @@ answers_array[4].setType('checkbox');
 questions_array[4].setText_question('Какие князья правили на Руси?');
 // Заполнение данных шестого вопроса:
 // Ответы:
-answers_array[5].setAns1('Олег');
-answers_array[5].setAns2('Рюрик');
+answers_array[5].setAns1('');
+answers_array[5].setAns2('Олег');
 answers_array[5].setAns3('Святослав');
 answers_array[5].setAns4('Игорь');
 answers_array[5].setKey('Олег');
