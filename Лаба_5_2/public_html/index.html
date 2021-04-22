@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="Styles/styles.css" rel="stylesheet" type="text/css"/>
+        <script src="Scripts/jquery-3.3.1.js" type="text/javascript"></script>
+        <script src="Scripts/map.js" type="text/javascript"></script>
+        <script src="Scripts/figurs.js" type="text/javascript"></script>
+        <script src="Scripts/script.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div>
+            <h1>Летающие фигуры</h1>
+            <p id="info">По экрану хаотично перемещаются несколько фигур разного цвета и
+формы (количество фигур задает пользователь). При столкновении двух фигур
+между собой они сливаются в новую фигуру случайной формы и цвета</p>
+        </div>
+        <div>
+            
+            <form name="forma">
+            <input type="text" name="quantity" placeholder="Количество">
+            <input type="button" value="Начать" onclick="start()">
+            <p> Количество элементов: <output name="out"></output></p>
+            </form>
+        </div>
+        
+        <canvas id="canvas" width="750" height="750"></canvas>
+    </body>
+</html>
