@@ -1,14 +1,11 @@
 $('#start').click(function(){
-    $('#info').animate({opacity: "hide"}, "slow");
-    //$('#instrucrion').animate({opacity: "hide"}, "slow");
-    //$('#start').animate({opacity: "hide"}, "slow");
-    //$('#quant').animate({opacity: "hide"}, "slow");
+    $('#info, #instrucrion, #quant, #start').animate({opacity: "hide"}, "slow");
     start();
 });
 function start(){
     Map.init(document.getElementById('canvas')); // Инициализация Map
     let Quantity = document.forma.quantity.value.toString(); // Первоначальное количество фигур
-    let reg = /[0-9]/;
+    let reg = /^([1-9][0-9]*)$/;
     if (!reg.test(Quantity) || Quantity < 2 || Quantity > 99){
         $('#error').show();
         return;
@@ -137,8 +134,8 @@ function start(){
             }
         }
         document.forma.out.value = all_figures.length;
-        if(all_figures.length < 2) location.reload();
         
+        if(all_figures.length < 2) $('.end').show();
     };
     
     
@@ -195,4 +192,8 @@ function CrossingCheck(x1,y1,x2,y2,x3,y3,x4,y4){ // Проверка перес�
 	v4=vec(x2 - x1, y2 - y1, x4 - x1, y3 - y1);
 	if(v1*v2<0 && v3*v4<0) return true; // Если пересекаются
 	else return false; // Если не пересекаются
+}
+
+function reload(){
+    location.reload();
 }

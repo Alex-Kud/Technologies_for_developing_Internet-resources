@@ -14,10 +14,12 @@
 формы (количество фигур задает пользователь). При столкновении двух фигур
 между собой они сливаются в новую фигуру случайной формы и цвета</p>
             <p id="error">Введено некорректное значение! </p>
+            <p class="end">Остался последний элемент. Хотите посмотреть ещё раз?<p>
         </div>
         <div>
             
             <form name="forma">
+            <input type="button" value="Посмотреть снова!" class="end" onclick="reload()">
             <p id="instrucrion">Введите количество фигур от 2 до 99:</p>
             <input type="text" name="quantity" id="quant" placeholder="Количество фигур">
             <input type="button" value="Начать" id="start" onclick="start()">
