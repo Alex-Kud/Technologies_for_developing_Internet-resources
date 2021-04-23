@@ -1,8 +1,8 @@
 class Map {
 	static init(canv) {
             this.canv = canv;
-            this.canv.width = window.innerWidth >> 1;
-            this.canv.height = window.innerHeight >> 1;
+            this.canv.width = 1000;
+            this.canv.height = 500;
 
             this.ctx = this.canv.getContext('2d');
 	}

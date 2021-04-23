@@ -1,13 +1,19 @@
-/*$(document).ready(function(){
-      $('.start').click(function(){
-          $('.info').animate({opacity: "hide"}, "slow");
-      });
-});*/
+$('#start').click(function(){
+    $('#info').animate({opacity: "hide"}, "slow");
+    //$('#instrucrion').animate({opacity: "hide"}, "slow");
+    //$('#start').animate({opacity: "hide"}, "slow");
+    //$('#quant').animate({opacity: "hide"}, "slow");
+    start();
+});
 function start(){
     Map.init(document.getElementById('canvas')); // Инициализация Map
-    let Quantity = document.forma.quantity.value; // Первоначальное количество фигур
+    let Quantity = document.forma.quantity.value.toString(); // Первоначальное количество фигур
+    let reg = /[0-9]/;
+    if (!reg.test(Quantity) || Quantity < 2 || Quantity > 99){
+        $('#error').show();
+        return;
+    }
     let all_figures = [Quantity]; // Массив с фигурами
-
     for (let i = 0; i < Quantity; i++){
         let figura = []; // Массив с информацие об одной фигуре
         type = getRandom(1,6); // 1 - ромб, 2 - квадрат, 3 - прямоугольник горизонт, 4 - прямоугольник верт, 5 - треугольник
@@ -41,9 +47,8 @@ function start(){
     let update = function(){
         requestAnimationFrame(update);
         Map.clear();
-        for (let i = 0; i < Quantity; i++){
-            Map.update(all_figures[i][0]); 
-        }
+        for (let i = 0; i < Quantity; i++) Map.update(all_figures[i][0]); 
+        
         for (let i = 0; i < Quantity; i++){
             for (let j = i+1; j < Quantity; j++){
                         let f1_p1 = {x: all_figures[i][0].get_coordinates()[0].x, y: all_figures[i][0].get_coordinates()[0].y};
@@ -131,7 +136,9 @@ function start(){
                 }
             }
         }
-    document.forma.out.value = all_figures.length;
+        document.forma.out.value = all_figures.length;
+        if(all_figures.length < 2) location.reload();
+        
     };
     
     
