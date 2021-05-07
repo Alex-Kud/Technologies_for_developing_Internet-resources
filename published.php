@@ -16,7 +16,7 @@ if (!(isset($_SESSION['is_login']) && $_SESSION['is_login'] == "yes")){
     <body>
 	<h1>Пост добален</h1>
 	    <div>
-			<p>Привет, <?php echo $_SESSION['user_login']; ?></p>	
+			<b>Привет, <?php echo $_SESSION['user_login']; ?></b><br><br>	
 			<p>Вы только что успешно добавили пост</p>
 			<a href="index.php">Добавить ещё один пост</a>
 			<br><br>

@@ -16,10 +16,8 @@ if (!(isset($_SESSION['is_login']) && $_SESSION['is_login'] == "yes")){
     <body>
 		<h1>Личный кабинет</h1>
 	    <div class="input_box">
-			<p>Привет, <?php echo $_SESSION['user_login']; ?></p>
-			
+			<b>Привет, <?php echo $_SESSION['user_login']; ?></b><br><br>
 				<form>
-				<br>
 				<div class="input">
 					<p>Введите заголовок поста: </p>
 					<div id="header_error" class="error"></div>
