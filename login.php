@@ -28,7 +28,7 @@ if (isset($_POST["login"]) && isset($_POST["password"])) {
     if ((isset($_POST["login"]) || isset($_POST["password"])))
         $other_error = true;
 
-$forma = '<h1 >Авторизация</h1 >';
+$forma = '<h1>Авторизация</h1>';
 if ($login_error)
 	$forma = $forma . "<p>Введен несуществующий логин</p>";
 elseif ($password_error)
@@ -37,9 +37,11 @@ elseif ($other_error)
 	$forma = $forma . "<p>Что-то пошло не так. Попробуйте ещё раз</p>";
 
 $forma = $forma . '<form action="login.php" method="POST">
-				   <input name="login" required placeholder="Логин"><br>
-				   <input name = "password" required placeholder="Пароль"><br>
-				   <input type="submit" value="Войти">
+				   <br>
+				   <input name="login" required placeholder="Логин"><br><br>
+				   <input name = "password" required placeholder="Пароль"><br><br>
+				   <input type="submit" value="Войти"><br><br>
 				   </form>
-				   <a href = "registration.php" >Зарегистрироваться!</a>';
+				   <a href = "registration.php" >Зарегистрироваться!</a>
+				   <link rel="stylesheet" href="style.css">';
 echo $forma;

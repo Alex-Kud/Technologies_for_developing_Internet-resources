@@ -31,35 +31,3 @@ function res(data, result){
 	else
 		window.location.replace('published.php');
 }
-
-
-
-
-/*
-$('form').submit(event => {
-	event.preventDefault();
-
-	$.ajax({
-		url: 'server.php',
-		type: 'post',
-		dataType: 'json',
-		data: $('form').serialize(),
-		success: alert(data) alert ("All good!") data => set_res(data)
-	});
-});
-/*
-const responses = ['success', 'invalid-value', 'empty'];
-
-const set_color = (id, r) => $(id).css('color', r == 0 ? 'green' : r == 1 ? 'yellow' : 'red');
-
-const set_res = data => {
-	alert ("All good!");
-	const res_mac = data.res_mac;
-	const res_date = data.res_date;
-
-	set_color('#res_mac', res_mac);
-	set_color('#res_date', res_date);
-
-	$('#res_mac').text(responses[res_mac]);
-	$('#res_date').text(responses[res_date]);
-};*/

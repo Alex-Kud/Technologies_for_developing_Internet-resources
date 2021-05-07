@@ -14,12 +14,11 @@ if (!(isset($_SESSION['is_login']) && $_SESSION['is_login'] == "yes")){
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-	    <div class="input_box">
-			<p>Привет, <?php echo $_SESSION['user_login']; ?></p>
-			<br>
+	<h1>Пост добален</h1>
+	    <div>
+			<p>Привет, <?php echo $_SESSION['user_login']; ?></p>	
 			<p>Вы только что успешно добавили пост</p>
 			<a href="index.php">Добавить ещё один пост</a>
-			
 			<br><br>
 			<a href="logout.php">Выйти из аккаунта</a>
 		</div>
