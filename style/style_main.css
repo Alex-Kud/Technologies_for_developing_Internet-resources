@@ -1,0 +1,86 @@
+body{
+	background-color: #ecc751;
+	color: #2d2825;
+	font-size: 25px;
+	text-align: center;
+	background-image: url('/img/grass.jpg');
+}
+
+#ball{
+	height: 100px;
+	width: 100px;
+	cursor: pointer;
+	float: left; 
+	margin: 0 15px 15px 0;
+}
+
+#container{
+	height: 10%;
+	width: 10%;
+}
+
+#fruits{
+	height: 225px;/* Размеры */
+	width: 690px;
+}
+
+#game{
+	margin-left: 25%;
+}
+
+p{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+#end, #reload {
+	background-color: #F5CB90;
+    border: 2px solid #eb9821;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 15px;
+	position: absolute;
+	height: 380px;
+	width: 115px;
+}
+
+#end:hover, #reload:hover{
+    border: 2px solid #C57F1A;
+    border-radius: 12px;
+}
+
+#need, #complete{
+	background-color: #F5CB90;
+    border: 2px solid #eb9821;
+    border-radius: 12px;
+	font-size: 25px;
+	height: 220px;
+	width: 110px;
+	position: absolute;
+}
+
+#need{
+	margin-left: 190px;
+}
+
+#complete {
+	margin-left: 1010px;
+	
+}
+
+#end{
+	margin-left: -435px;
+	margin-top: 230px;
+}
+
+#reload {
+	margin-left: 385px;
+	margin-top: 230px;
+}
+
+#result {
+	font-weight: 600;
+	font-size: 40px;
+}
