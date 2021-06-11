@@ -1,0 +1,37 @@
+body{
+    	background-color: #ecc751;
+    	color: #2d2825;
+    	font-size: 25px;
+	text-align: center;
+}
+
+form {
+	margin: 0% 25%;
+	background-color: #eb9821;
+    	border: #cc831c solid 2px;
+    	border-radius: 3%;
+	width: 50%;
+}
+
+.error{
+	background-color: #C57F1A;
+}
+
+input, textarea, select{
+	font-size: 25px;
+	width: 50%;
+	height: 50px;
+	background-color: #ffeb90;
+	border: #cc831c solid 3px;
+}
+
+textarea{
+	height: 250px;
+}
+
+#radio{
+	font-size: 25px;
+	width: 5%;
+	height: 25px;
+	background-color: #ffeb90;
+}

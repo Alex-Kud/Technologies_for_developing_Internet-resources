@@ -1,0 +1,9 @@
+Автор поста: admin
+header: It is header, men
+text: It is very very interesting and fun story, but you can't see it
+teg: #story
+category: humor
+visibility: all
+comment: true
+
+
