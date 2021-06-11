@@ -1,0 +1,35 @@
+<!--Кудашов Александр
+    Вариант 12-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Тестирование по истории</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="Style/style.css" rel="stylesheet" type="text/css"/>
+        <link href="Style/settings.css" rel="stylesheet" type="text/css"/>
+        <link href="Style/result.css" rel="stylesheet" type="text/css"/>
+        <script src="Scripts/class.js" type="text/javascript"></script>
+        <script src="Data/data.js" type="text/javascript"></script>
+        <script src="Scripts/script.js" type="text/javascript"></script>
+        <script src="Scripts/timer.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div id="result"></div>
+        <div id="content">
+            <div id="settings">
+                <h1>Настройка</h1>
+                <p>Это тест по истории России в период Средневековья. Вам 
+                предстоит ответить на несколько несложных вопросов. После чего
+                система выдаст результат прохождения тестирования. Тестирование 
+                автоматически после завершения таймера. Вы можете завершить его 
+                преждевременно, нажав соответствующую кнопку. Испытайте свои 
+                знания в истории России! Удачи! </p>
+                <p>Укажите длительность проведения тестирования в минутах</p>
+                <input type="text" name="time" id="time" placeholder="Введите время" autofocus><br>
+                <input id="start" type="button" value="Запустить тестирование" onclick="timer()">
+            </div>
+        </div>
+    </body>
+</html>

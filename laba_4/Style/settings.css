@@ -1,0 +1,23 @@
+#settings{
+    text-align: center;
+}
+
+#start{
+    background-color: #f5cb90;
+    border: 2px solid #C57F1A;
+    border-radius: 6px;
+    height: 35px;
+    margin-top: 10px;
+    width: 250px;
+}
+
+#start:hover{
+    background-color: #eb9821;
+    border: 2px solid #C57F1A;
+    border-radius: 6px;
+}
+
+#time{
+    height: 25px;
+    width: 250px;
+}
