@@ -1,0 +1,13 @@
+body{
+    background-color: #2F2F2F;
+    color: white;
+    text-align: center;
+}
+
+#canvas {
+    border: 1px dashed white;
+}
+
+#error, .end{
+    display: none;
+}
