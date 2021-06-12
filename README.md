@@ -70,4 +70,6 @@ Laboratory works performed within the framework of the academic subject "Technol
     git push origin main
 ```
   
+## Structure of merge
 
+![Структура мержа](/img_for_readme/git_structure.png)
