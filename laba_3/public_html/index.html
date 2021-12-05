@@ -1,0 +1,56 @@
+<!--Кудашов Александр
+    Вариант 12-->
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Converting power</title>
+        <meta charset="UTF-8">
+        <link href="Style/style.css" rel="stylesheet" type="text/css"/>
+        <script src="Scripts/script.js" type="text/javascript"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div align="center">
+            <h1>Конвертор мощности</h1>
+            <p>Лошади́ная си́ла (русское обозначение: л. с.; английское: hp; 
+                немецкое: PS; французское: CV) — внесистемная единица мощности.
+                В мире существует несколько единиц измерения под названием 
+                «лошадиная сила». В России, как правило, под лошадиной силой 
+                имеется в виду так называемая «метрическая лошадиная сила», 
+                равная точно 735,49875 ваттам. В настоящее время в России 
+                формально лошадиная сила выведена из употребления, однако до 
+                сих пор применяется для расчёта транспортного налога и ОСАГО. 
+                В России и во многих других странах она всё ещё очень широко 
+                распространена в среде, где используются двигатели внутреннего 
+                сгорания (автомобили, мотоциклы, тракторная техника, мотокосы и 
+                триммеры). В Международной системе единиц (СИ) официально 
+                установленной единицей измерения мощности является ватт.
+            </p>
+            <h4>Переводит л.с ↔ кВт</h4>
+        </div>
+        
+        <div id="convertation" align="center">
+            <form name="forma">
+                <input type="text" name="ls" placeholder="л.с.">
+                <select name="choice" onchange="counter()">
+                    <option>л.с. ↔ кH</option>
+                    <option>кH ↔ л.с.</option>
+                </select>
+                <input type="text" name="kv" placeholder="кH">
+                <br><br>
+                <input type="button" value="Рассчитать" onclick="calculate()">
+            </form> 
+        </div>
+        <h3 align="center">История конвертаций</h3>
+        <table id = "table" border="1" align="center">
+            <tr>
+                <th>л.с.</th>
+                <th>кВт</th>
+            </tr>
+        </table>
+
+
+    </body>
+</html>
