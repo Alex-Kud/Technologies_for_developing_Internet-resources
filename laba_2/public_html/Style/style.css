@@ -1,0 +1,55 @@
+body{
+	background-color: #FA8173;
+}
+
+p{
+	font-family: Times New Roman;
+}
+
+h1{
+	color: blue;
+	font-family: Broadway;
+	font-size: 45pt;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: underline;
+}
+
+
+.margin_font-size{
+	margin-left: 10px;
+	font-size: 25pt;
+}
+
+.second_paragraph{
+	color: #BF50B5;
+	font-size: 20pt;
+	margin-left: 60px;
+	margin-right: 10px;
+	text-align: right;
+	text-decoration: line-through;
+}
+
+
+#first_paragraph{
+	color: green;
+	font-style: italic;
+	font-weight: bold;
+	text-indent: 3%;
+}
+
+#third_paragraph{
+	color: yellow;
+	font-family: Monotype Corsiva;
+	font-weight: bold;
+	font-style: italic;
+	text-indent: 5%;
+	text-transform: uppercase;
+}
+
+#fourth_paragraph{
+	color: #A5207E;
+	font-size: 20pt;
+	margin-right: 10px;
+	text-align: center;
+}
